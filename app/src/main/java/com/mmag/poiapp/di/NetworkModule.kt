@@ -1,6 +1,5 @@
 package com.mmag.poiapp.di
 
-import android.content.Context
 import com.mmag.poiapp.data.network.POIService
 import com.mmag.poiapp.data.network.repository.NetworkRepository
 import com.mmag.poiapp.data.network.repository.NetworkRepositoryDefault
@@ -12,7 +11,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModule {
+object NetworkModule {
 
     @Provides
     @Singleton
