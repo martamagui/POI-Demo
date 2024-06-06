@@ -20,6 +20,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        /*region ---- WS Configfields-----*/
+        buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/worldline-spain/\"")
+        buildConfigField("String", "POI_WS", "\"/technical_test_backend/main/pois.json\"")
+        /*endregion ---- WS Configfields-----*/
     }
 
     buildTypes {
