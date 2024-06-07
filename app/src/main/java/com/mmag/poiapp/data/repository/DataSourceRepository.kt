@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface DataSourceRepository {
     suspend fun getAllPoi(): Flow<POIAppResponse<List<POIDetail>>>
     suspend fun getPoiBySearch(text: String): Flow<POIAppResponse<List<POIDetail>>>
-    suspend fun getPoiById(id: String): Flow<POIAppResponse<POIDetail>>
+    suspend fun getPoiById(id: Int?): Flow<POIAppResponse<POIDetail>>
 }

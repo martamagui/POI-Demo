@@ -73,6 +73,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val okhttpVersion = "4.12.0"
     val roomVersion = "2.6.0"
+    val coilVersion = "2.6.0"
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
@@ -87,6 +88,9 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:$coilVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

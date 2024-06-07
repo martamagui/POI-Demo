@@ -1,24 +1,21 @@
-package com.mmag.poiapp.ui.components
+package com.mmag.poiapp.ui.screens.home_screen.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.mmag.poiapp.R
 import com.mmag.poiapp.ui.screens.home_screen.HomeScreenViewModel
 
@@ -27,15 +24,16 @@ import com.mmag.poiapp.ui.screens.home_screen.HomeScreenViewModel
 fun SearchTopAppBar(
     title: String,
     viewModel: HomeScreenViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    scrollBehavior: TopAppBarScrollBehavior,
 ) {
-
     val searchText by viewModel.searchText.collectAsState()
 
     TopAppBar(
         title = {
             Text(text = title)
         },
+        scrollBehavior = scrollBehavior,
         actions = {
             TextField(
                 value = searchText,
@@ -43,14 +41,20 @@ fun SearchTopAppBar(
                     viewModel.updateSearchText(it)
                     viewModel.searchPOI(it)
                 },
+
+                placeholder = {
+                    Text(text = stringResource(id = R.string.home_search_place_holder))
+                },
+                colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+                shape = RoundedCornerShape(12.dp),
+                singleLine = true,
+                maxLines = 1,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical =8.dp),
-                placeholder = {
-                    Text(text = stringResource(id = R.string.search_place_holder))
-                },
-                singleLine = true,
-                maxLines = 1
+                    .padding(vertical = 24.dp, horizontal = 12.dp),
             )
         },
         modifier = modifier

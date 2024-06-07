@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">POI App</string>
-    <string name="search_place_holder">Search</string>
+    <!--region Home -->
+    <string name="home_search_place_holder">Search</string>
     <string name="home_screen_title">Points of interest</string>
+    <string name="home_location_text">Location: %1$s</string>
+    <string name="home_error_default">Unexpected error</string>
+    <!--endregion Home -->
+
+    <!--region Detail -->
+    <string name="detail_error_default">Detail not found</string>
+    <string name="detail_title">Detailed information</string>
+    <string name="detail_arrow_back_description">Go back</string>
+    <!--endregion Detail -->
+
 </resources>

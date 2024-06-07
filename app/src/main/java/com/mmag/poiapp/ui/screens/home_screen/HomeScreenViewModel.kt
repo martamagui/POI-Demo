@@ -37,16 +37,13 @@ class HomeScreenViewModel @Inject constructor(
         getAllPOI()
     }
 
+    //region DB
     private fun getAllPOI() {
         viewModelScope.launch(Dispatchers.IO) {
             dataSourceRepository.getAllPoi().collect { data ->
                 _state.update { data }
             }
         }
-    }
-
-    fun updateSearchText(text: String) {
-        _searchText.update { text }
     }
 
     fun searchPOI(text: String) {
@@ -56,4 +53,11 @@ class HomeScreenViewModel @Inject constructor(
             }
         }
     }
+    //endregion DB
+
+    //region State setters
+    fun updateSearchText(text: String) {
+        _searchText.update { text }
+    }
+    //endregion State setters
 }

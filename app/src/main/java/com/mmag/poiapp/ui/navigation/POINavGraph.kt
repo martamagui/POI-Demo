@@ -19,7 +19,7 @@ fun POINavGraph(
         startDestination = NavigationConfig.HOME_ROUTE
     ) {
         composable(NavigationConfig.HOME_ROUTE) {
-            HomeScreen()
+            HomeScreen(navController)
         }
 
         composable(NavigationConfig.DETAIL_ROUTE,
@@ -28,7 +28,7 @@ fun POINavGraph(
             )
         ) {
             val id = it.arguments?.getInt(NavigationConfig.Args.DETAIL_ARG)
-            DetailScreen(poiId=id)
+            DetailScreen(poiId = id, navController = navController)
         }
 
     }
