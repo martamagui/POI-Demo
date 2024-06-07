@@ -3,11 +3,11 @@ package com.mmag.poiapp.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class POIDetail(
+data class POIDetailResponse(
     @SerializedName("geocoordinates")
     val geocoordinates: String,
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("image")
     val image: String,
     @SerializedName("title")

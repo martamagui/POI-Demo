@@ -6,6 +6,8 @@ import com.mmag.poiapp.data.db.repository.DatabaseRepositoryDefault
 import com.mmag.poiapp.data.network.POIService
 import com.mmag.poiapp.data.network.repository.NetworkRepository
 import com.mmag.poiapp.data.network.repository.NetworkRepositoryDefault
+import com.mmag.poiapp.data.repository.DataSourceRepository
+import com.mmag.poiapp.data.repository.DataSourceRepositoryDefault
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +26,12 @@ object DataRepositoryModule {
     @Provides
     @Singleton
     fun provideDatabaseRepository(dao: POIDao): DatabaseRepository = DatabaseRepositoryDefault(dao)
+
+    @Provides
+    @Singleton
+    fun provideDataSourceRepository(
+        networkRepository: NetworkRepository,
+        databaseRepository: DatabaseRepository,
+    ): DataSourceRepository = DataSourceRepositoryDefault(networkRepository, databaseRepository)
 
 }

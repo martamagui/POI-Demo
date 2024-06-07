@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "poi")
 data class POIEntity(
     @PrimaryKey(autoGenerate = false)
-    val id: String,
+    val id: Int,
     @ColumnInfo(name ="geocoordinates")
     val geocoordinates: String,
     @ColumnInfo(name ="image")

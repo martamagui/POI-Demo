@@ -51,9 +51,9 @@ abstract class NetworkSafeService {
                 when (apiResponse.code()) {
                     400 -> NetworkResponse.Error("Bad request")
                     401 -> NetworkResponse.Error("Unauthorized")
-                    403 ->NetworkResponse.Error("Forbidden")
+                    403 -> NetworkResponse.Error("Forbidden")
                     404 -> NetworkResponse.Error("Not Found")
-                    else ->NetworkResponse.Error("Request error, code: ${apiResponse.code()}")
+                    else -> NetworkResponse.Error("Request error, code: ${apiResponse.code()}")
                 }
             }
 

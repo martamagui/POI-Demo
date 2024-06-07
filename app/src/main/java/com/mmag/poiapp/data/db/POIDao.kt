@@ -11,11 +11,14 @@ import kotlinx.coroutines.flow.Flow
 interface POIDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllPOI(poiList: List<POIEntity>)
+    fun insertAllPOI(poiList: List<POIEntity>): List<Long>
 
     @Query("SELECT * FROM poi")
     fun getAllPOIs(): Flow<List<POIEntity>>
 
+    @Query("SELECT * FROM poi WHERE title  LIKE '%' || :searchText || '%'")
+    fun getPOIsBySearchText(searchText:String): Flow<List<POIEntity>>
+
     @Query("SELECT * FROM poi WHERE id=:poiID")
-    fun getPOIById(poiID: String): Flow<List<POIEntity>>
+    fun getPOIById(poiID: Int): Flow<POIEntity>
 }

@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class POIListResponse(
     @SerializedName("list")
-    val list: List<POIDetail>
+    val list: List<POIDetailResponse>
 )

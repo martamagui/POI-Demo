@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface DatabaseRepository {
     suspend fun addPOIList(list: List<POIEntity>)
     suspend fun getPOIList(): Flow<List<POIEntity>>
-    suspend fun getPOIById(): Flow<POIEntity>
+    suspend fun getPOIsBySearchText(text: String): Flow<List<POIEntity>>
+    suspend fun getPOIById(id: Int): Flow<POIEntity>
 }

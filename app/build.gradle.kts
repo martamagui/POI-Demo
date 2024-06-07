@@ -23,7 +23,7 @@ android {
         }
         /*region ---- WS Configfields-----*/
         buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/worldline-spain/\"")
-        buildConfigField("String", "POI_WS", "\"/technical_test_backend/main/pois.json\"")
+        buildConfigField("String", "POI_WS", "\"technical_test_backend/main/pois.json\"")
         /*endregion ---- WS Configfields-----*/
     }
 
@@ -86,6 +86,7 @@ dependencies {
     // Dagger Hilt
     implementation ("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
