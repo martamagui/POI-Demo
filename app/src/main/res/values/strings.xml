@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">POI App</string>
+    <string name="search_place_holder">Search</string>
+    <string name="home_screen_title">Points of interest</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.mmag.poiapp.data.repository
 
+import android.util.Log
 import com.mmag.poiapp.data.db.repository.DatabaseRepository
 import com.mmag.poiapp.data.network.repository.NetworkRepository
 import com.mmag.poiapp.data.POIAppResponse
@@ -65,9 +66,16 @@ class DataSourceRepositoryDefault @Inject constructor(
     override suspend fun getPoiBySearch(text: String): Flow<POIAppResponse<List<POIDetail>>> =
         flow {
             this.emit(POIAppResponse.Loading())
-            databaseRepository.getPOIsBySearchText(text).collect { list ->
-                val externalModelList = handleDatabaseResponse(list)
-                this.emit(POIAppResponse.Success(externalModelList))
+            if (text.isNotEmpty()) {
+                databaseRepository.getPOIsBySearchText(text).collect { list ->
+                    val externalModelList = handleDatabaseResponse(list)
+                    this.emit(POIAppResponse.Success(externalModelList))
+                }
+            } else {
+                databaseRepository.getPOIList().collect { list ->
+                    val externalModelList = handleDatabaseResponse(list)
+                    this.emit(POIAppResponse.Success(externalModelList))
+                }
             }
         }
 
